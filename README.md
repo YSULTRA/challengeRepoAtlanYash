@@ -81,7 +81,7 @@ This project is designed to provide a real-time logistics platform for users to 
 
    ```bash
    git clone https://github.com/your-username/driver-booking-system.git
-   cd driver-booking-system
+   cd TransPorters
    ```
 
 2. Create and activate a virtual environment:
@@ -146,10 +146,12 @@ Once this is done, the system will be able to use the database password when con
 
    ```bash
    python manage.py runserver
+
    ```
 
 8. Access the application at `http://127.0.0.1:8000`.
-
+9. Access the driver portal at `http://127.0.0.1:8000/fleet/driver-home`
+10. Access the driver portal at `http://127.0.0.1:8000/admin` with superuser credentials
 ---
 
 ## Configuration
