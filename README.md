@@ -71,7 +71,7 @@ This project is designed to provide a real-time logistics platform for users to 
 - Channels
 - Channels Redis (for real-time communication)
 - Mapbox API Key for geolocation and tracking
-- SQLite (default database, replaceable with other databases)
+- 
 
 ---
 
@@ -91,19 +91,48 @@ This project is designed to provide a real-time logistics platform for users to 
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    ```
 
-3. Install dependencies:
+3. Important Step
+
+To uncomment the password line in the `DATABASES` configuration of `settings.py` in a Django project, you should follow these steps:
+
+1. Open the `settings.py` file in your project directory.
+
+2. Find the `DATABASES` setting, which typically looks like this:
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',  # Example for PostgreSQL
+        'NAME': 'your_database_name',
+        'USER': 'your_database_user',
+        'PASSWORD': 'your_database_password',  # This line is commented
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+```
+
+3. Look for the password line that is commented out. It will appear as follows:
+
+```python
+# 'PASSWORD': 'your_database_password',  # This line is commented
+```
+
+4. Uncomment the password line by removing the `#` symbol at the beginning of the line, like this:
+
+```python
+'PASSWORD': 'your_database_password',  # This line is now uncommented
+```
+
+5. Save the `settings.py` file.
+
+Once this is done, the system will be able to use the database password when connecting to the database.
+
+
+6. Apply migrations:
 
    ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Set up your Mapbox API key:
-   - Sign up at [Mapbox](https://www.mapbox.com/).
-   - Get your API key and set it in the environment variables or the config file.
-
-5. Apply migrations:
-
-   ```bash
+   python manage.py makemigrations
    python manage.py migrate
    ```
 
@@ -153,51 +182,7 @@ This project is designed to provide a real-time logistics platform for users to 
 
 ---
 
-## Project Structure
 
-```
-driver-booking-system/
-│
-├── your_project/                   # Django project folder
-│   ├── __init__.py
-│   ├── settings.py                 # Django settings file
-│   ├── urls.py                     # URL routing
-│   ├── asgi.py                     # ASGI configuration for Channels
-│
-├── your_app/                       # Your Django app
-│   ├── __init__.py
-│   ├── models.py                   # Database models (Booking, Driver, etc.)
-│   ├── views.py                    # Views for booking and driver management
-│   ├── consumers.py                # WebSocket consumer for driver notifications
-│   ├── templates/
-│   │   └── driver_notification.html  # WebSocket UI for the driver
-│   └── static/                     # Static files (CSS, JS)
-├── requirements.txt                # Python dependencies
-├── manage.py                       # Django management script
-└── README.md                       # Project documentation
-```
 
-### Important Files:
-- **`your_project/asgi.py`**: Configures the ASGI application and WebSocket routing.
-- **`your_app/consumers.py`**: Contains the WebSocket consumer to handle real-time communication.
-- **`your_app/models.py`**: Defines the booking, user, and driver models.
-- **`your_app/views.py`**: Contains views for handling the booking logic.
-- **`your_app/templates/driver_notification.html`**: WebSocket interface for the driver.
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to contribute to the project, raise issues, or suggest improvements. If you have any questions, don't hesitate to reach out via the [GitHub Issues](https://github.com/your-username/driver-booking-system/issues).
-
-```
-
-### Customization Notes:
-- Replace `your-username` with your actual GitHub username.
-- Modify sections to better match your project implementation or requirements.
 
 This updated README includes information on both the user and driver registration features, booking system functionality, real-time notifications via WebSocket, and the integration of a map for tracking.
