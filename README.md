@@ -1,5 +1,14 @@
 Here’s an updated version of the `README.md` for your project, now incorporating the user, driver, and admin features, as well as the logistics platform features as described in the context:
 
+HLD
+![HLD](https://github.com/user-attachments/assets/a71df6e1-a9bb-4a43-a4ad-36e0828fe845)
+
+
+ER Diagram 
+![ER](https://github.com/user-attachments/assets/2503a37c-b2b4-4b91-a906-46b86a8ad403)
+
+Demo
+https://drive.google.com/file/d/1zVWVbEzXvUkWmEazoe_3Ci9oorr3Pt-3/view
 ```markdown
 # Driver Booking System with WebSocket Notifications
 
